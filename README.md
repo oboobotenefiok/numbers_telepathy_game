@@ -1,14 +1,14 @@
 ```markdown
-#  OBOT'S NUMBERS TELEPATHY GAME
+# OBOT'S NUMBERS TELEPATHY GAME
 
 > A fun little game where you try to **read the computer's mind** by guessing its secret number!
 
 ---
 
-##  **How to Play**
+## **How to Play**
 
 1. **Start the game**
-   - The computer picks a secret whole- number between **1 and 365** (yes, like guessing a birthday!).
+   - The computer picks a secret whole-number between **1 and 365** (yes, like guessing a birthday!).
 
 2. **Make a guess**
    - Type in a number and press **Enter**.
@@ -28,16 +28,16 @@
 
 ---
 
-## s **Fun Features**
+## **Fun Features**
 
--  **Playful personality** – The computer talks like a buddy, not a robot.
+- **Playful personality** – The computer talks like a buddy, not a robot.
 - **Forgiving** – Type letters by mistake? No problem, just try again.
--  **Big range** – Guessing from 1–365 is trickier and more fun than 1–100!
+- **Big range** – Guessing from 1–365 is trickier and more fun than 1–100!
 - **Quick to play** – Perfect for a short break or a fun challenge with friends.
 
 ---
 
-##  **Example Round**
+## **Example Round**
 
 ```
 
@@ -61,30 +61,32 @@ God of Telepathy, we hail thee!
 
 ---
 
-##  **Great For...**
+## **Great For...**
 
 - **Complete beginners** – No gaming experience needed!
-- **Quick fun** – Play during a coffee break 
+- **Quick fun** – Play during a coffee break
 - **Friends & family** – See who has the best "telepathic" skills
 - **Learning about computers** – See how guessing games work behind the scenes
 
 ---
 
-##  **Tip**
+## **Tip**
+
 Think of it like playing "Hot & Cold" with a computer friend. Start in the middle (around 180) and use the hints to zero in on the secret number!
 
-**Ready to test your mind-reading abilities?** 
+**Ready to test your mind-reading abilities?**
 
 ---
 
-##  **Project Structure**
+## **Project Structure**
+
 ```
 
 NUMBERS TELEPATHY GAME/
 ├── Cargo.toml
 └── src/
 └── main.rs
-|__ README.md
+├── README.md
 
 ```
 
@@ -112,43 +114,35 @@ use std::io;
 
 fn main() {
     println!("WELCOME TO OBOT'S NUMBERS TELEPATHY GAME!");
-    let system_guess = rand::rng().random_range(1..=365);
+    let system_guess = rand::thread_rng().gen_range(1..=365);
     println!("You Can Now Make Your Wildest Guesses");
+
     loop {
-    let mut human_guess = String::new();
-    io::stdin().read_line(&mut human_guess).expect(
-    "We need a
-    number bro, jokes on you, lol :-)",
-    );
-    let human_guess: u32 = match human_guess.trim().parse() {
-    Ok(num) => num,
-    Err(_) => continue,
-    };
-    match human_guess.cmp(&system_guess) {
-    Ordering::Less => println!(
-    "{human_guess}'s too small bro,
-    ask for more."
-    ),
-    Ordering::Greater => println!(
-    "Jokes on you,
-    {human_guess}'s too much bro, don't be greedy."
-    ),
-    Ordering::Equal => {
-    println!(
-    "God of Telepathy, we hail thee! \n
-    {system_guess} is RIGHT!"
-    );
-    break;
+        let mut human_guess = String::new();
+        io::stdin()
+            .read_line(&mut human_guess)
+            .expect("We need a number bro, jokes on you, lol :-)");
+
+        let human_guess: u32 = match human_guess.trim().parse() {
+            Ok(num) => num,
+            Err(_) => continue,
+        };
+
+        match human_guess.cmp(&system_guess) {
+            Ordering::Less => println!("{human_guess}'s too small bro, ask for more."),
+            Ordering::Greater => println!("Jokes on you, {human_guess}'s too much bro, don't be greedy."),
+            Ordering::Equal => {
+                println!("God of Telepathy, we hail thee! \n{system_guess} is RIGHT!");
+                break;
+            }
+        };
     }
-    };
-    }
-}
 }
 ```
 
 ---
 
- How to Run
+How to Run
 
 1. Install Rust (if you haven't already)
 2. Create the project folder with the files above
@@ -171,5 +165,3 @@ This is a Rust programming project that demonstrates:
 · Fun console interactions
 
 Perfect for learning Rust or just having some quick, entertaining fun!
-
-```
