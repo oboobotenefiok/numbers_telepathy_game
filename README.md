@@ -1,6 +1,6 @@
 # OBOT'S NUMBERS TELEPATHY GAME
 
-> A fun little game where you try to **read the computer's mind** by guessing its secret number!
+> Hi friend, this is a fun little game where you try to **read the computer's mind** by guessing its secret number!
 
 ---
 
@@ -10,7 +10,8 @@
    - The computer picks a secret whole-number between **1 and 365** (yes, like guessing a birthday!).
 
 2. **Make a guess**
-   - Type in a number and press **Enter**.
+   - Type in a number
+   - (that will be your guess) and press **Enter**.
 
 3. **Get hints**
    - If your guess is **too low**, the computer will say:
@@ -19,7 +20,7 @@
      > `"Jokes on you, that's too much bro, don't be greedy."`
 
 4. **Keep guessing**
-   - Use the hints to narrow it down.
+   - Use the hints to narrow it down within range.
 
 5. **Win!**
    - When you guess it right, the computer celebrates:
@@ -30,8 +31,8 @@
 ## **Fun Features**
 
 - **Playful personality** – The computer talks like a buddy, not a robot.
-- **Forgiving** – Type letters by mistake? No problem, just try again.
-- **Big range** – Guessing from 1–365 is trickier and more fun than 1–100!
+- **Forgiving** – If you Type letters by mistake, No problem! Just try again.
+- **Big range** – Guessing from 1–365 is trickier and more fun than 1–100 that's on the legendary guess game.
 - **Quick to play** – Perfect for a short break or a fun challenge with friends.
 
 ---
@@ -71,7 +72,7 @@ God of Telepathy, we hail thee!
 
 ## **Tip**
 
-Think of it like playing "Hot & Cold" with a computer friend. Start in the middle (around 180) and use the hints to zero in on the secret number!
+I want you to see it like playing "Hot & Cold" with a computer friend. To me, the smartest move is : start in the middle (around 180) and use the hints to zero in on the secret number!
 
 **Ready to test your mind-reading abilities?**
 
@@ -113,7 +114,7 @@ use std::io;
 
 fn main() {
     println!("WELCOME TO OBOT'S NUMBERS TELEPATHY GAME!");
-    let system_guess = rand::thread_rng().gen_range(1..=365);
+    let system_guess = rand::rng().random_range(1..=365);
     println!("You Can Now Make Your Wildest Guesses");
 
     loop {
@@ -162,5 +163,6 @@ This is a Rust programming project that demonstrates:
 · User input handling
 · Game logic with loops and conditions
 · Fun console interactions
+. And a couple other Rust concepts to boost my understanding
 
-Perfect for learning Rust or just having some quick, entertaining fun!
+Good Luck & Good Playing :-)
