@@ -1,4 +1,3 @@
-```markdown
 # OBOT'S NUMBERS TELEPATHY GAME
 
 > A fun little game where you try to **read the computer's mind** by guessing its secret number!
