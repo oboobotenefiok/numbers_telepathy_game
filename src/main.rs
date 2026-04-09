@@ -3,21 +3,26 @@ use std::cmp::Ordering;
 use std::io;
 
 fn main() {
-    println!("WELCOME TO OBOT'S NUMBERS TELEPATHY GAME! \n
-    I'm thinking of a number between 1 and 365");
-    
+    println!(
+        "WELCOME TO OBOT'S NUMBERS TELEPATHY GAME! \n
+    I'm thinking of a number between 1 and 365"
+    );
+
     let system_guess = rand::rng().random_range(1..=365);
     println!("You Can Now Make Your Wildest Guesses");
     loop {
         let mut human_guess = String::new();
-        
+
         io::stdin().read_line(&mut human_guess).expect(
             "We need a
     number bro, jokes on you, lol :-)",
         );
         let human_guess: u32 = match human_guess.trim().parse() {
             Ok(num) => num,
-            Err(_) => continue,
+            Err(_) => {
+                println!("what is even that bro?");
+                continue;
+            }
         };
         match human_guess.cmp(&system_guess) {
             Ordering::Less => println!(
