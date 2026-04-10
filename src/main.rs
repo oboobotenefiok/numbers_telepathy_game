@@ -8,7 +8,7 @@ fn main() {
     
     let system_guess = rand::thread_rng().gen_range(1..=365);
     println!("You Can Now Make Your Wildest Guesses");
-    
+   
     loop {
         let mut human_guess = String::new();
         
