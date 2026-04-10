@@ -6,35 +6,75 @@ fn main() {
     println!("WELCOME TO OBOT'S NUMBERS TELEPATHY GAME! \n
     I'm thinking of a number between 1 and 365");
     
-    let system_guess = rand::rng().random_range(1..=365);
+    let system_guess = rand::thread_rng().gen_range(1..=365);
     println!("You Can Now Make Your Wildest Guesses");
+    
     loop {
         let mut human_guess = String::new();
         
         io::stdin().read_line(&mut human_guess).expect(
-            "We need a
-    number bro, jokes on you, lol :-)",
+            "We need a number bro, jokes on you, lol :-)",
         );
+        
         let human_guess: u32 = match human_guess.trim().parse() {
             Ok(num) => num,
-            Err(_) => continue,
+            Err(_) => {
+                println!("That's not a number, bro! Try again!");
+                continue;
+            }
         };
+        
         match human_guess.cmp(&system_guess) {
             Ordering::Less => println!(
-                "{human_guess}'s too small bro,
-    ask for more."
+                "{human_guess}'s too small bro, ask for more."
             ),
             Ordering::Greater => println!(
-                "Jokes on you,
-    {human_guess}'s too much bro, don't be greedy."
+                "Jokes on you, {human_guess}'s too much bro, don't be greedy."
             ),
             Ordering::Equal => {
                 println!(
                     "God of Telepathy, we hail thee! \n
-    {system_guess} is RIGHT!"
+                    {system_guess} is RIGHT!"
                 );
-                break;
+                restart();
+                return; 
             }
         };
     }
 }
+
+fn restart() {
+    println!("Type capital R to restart OR capital E to end the game");
+    
+    loop {
+        let mut start_again = String::new();
+        
+        io::stdin().read_line(&mut start_again).expect(
+            "We need a decision bro, jokes on you, lol :-)",
+        );
+        
+        match start_again.trim() {
+            "R" => {
+                println!("Restarting the game...\n");
+                main();
+                break;
+            }
+            "E" => {
+                println!("Thanks for playing, telepathy master!");
+                break;
+            }
+            _ => {
+                println!("You're rich in everything \n
+                except the ability to follow
+                simple instructions.\n
+                Type capital R or capital E only, bro!");
+                continue;
+            }
+        }
+    }
+}
+
+
+
+
+
