@@ -4,11 +4,11 @@ use std::io;
 
 fn main() {
     println!("WELCOME TO OBOT'S NUMBERS TELEPATHY GAME! \n
-    I'm thinking of a number between 1 and 365");
+    I'm Thinking Of A WHOLE NUMBER BETWEEN 1 AND 365");
     
     let system_guess = rand::thread_rng().gen_range(1..=365);
     println!("You Can Now Make Your Wildest Guesses");
-   
+    
     loop {
         let mut human_guess = String::new();
         
@@ -19,12 +19,12 @@ fn main() {
         let human_guess: u32 = match human_guess.trim().parse() {
             Ok(num) => num,
             Err(_) => {
-                println!("That's not a number, bro! Try again!");
+                println!("That's not a WHOLE NUMBER, bro! Try again! \n SUGGESTIONS: 1. Remove DECIMAL POINTS if you have any.\n 2. Just type numbers only, be honest to yourself man. Don't you know numbers?");
                 continue;
             }
         };
         
-        match human_guess.cmp(&system_guess) {
+        if human_guess >=1 && human_guess <=365 {  match human_guess.cmp(&system_guess) {
             Ordering::Less => println!(
                 "{human_guess}'s too small bro, ask for more."
             ),
@@ -40,6 +40,11 @@ fn main() {
                 return; 
             }
         };
+        }
+        else {
+            println!("Please type a number within the range of 1 and 365");
+            continue;
+        }
     }
 }
 
@@ -73,8 +78,4 @@ fn restart() {
         }
     }
 }
-
-
-
-
 
