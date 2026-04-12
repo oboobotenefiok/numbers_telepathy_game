@@ -19,7 +19,7 @@ fn main() {
         let human_guess: u32 = match human_guess.trim().parse() {
             Ok(num) => num,
             Err(_) => {
-                println!("That's not a WHOLE NUMBER, bro! Try again! \n SUGGESTIONS: 1. Remove DECIMAL POINTS if you have any.\n 2. Just type numbers only, be honest to yourself man. Don't you know numbers?");
+                println!("That's not a WHOLE NUMBER, bro! Try again! \n SUGGESTIONS: 1. Remove DECIMAL POINTS if you have any.\n 2. Just type numbers only, be honest to yourself man. Don't you know numbers? \n 3. Confirm you've actually typed something. \n 4. Remove negative signs if you have any.");
                 continue;
             }
         };
