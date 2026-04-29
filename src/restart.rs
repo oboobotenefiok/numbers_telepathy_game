@@ -13,7 +13,7 @@ pub fn handle_restart() {
         match start_again.trim() {
             "R" => {
                 println!("Restarting the game...\n");
-                crate::main();
+                crate::main(); //Recursive-like
                 break;
             }
             "E" => {
